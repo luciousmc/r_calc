@@ -1,0 +1,105 @@
+#wrapper {
+  background: purple;
+  padding: 20px;
+  max-width: 350px;
+}
+
+.display-container {
+  background: turquoise;
+  height: 10vh;
+}
+
+.buttons-container {
+  background: lightgrey;
+  min-height: 30vh;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "ce ce c divide"
+    "seven eight nine times"
+    "four five six minus"
+    "one two three plus"
+    "zero dot equals plus";
+}
+
+.btn {
+  background: black;
+  color: yellow;
+  border: 1px solid yellow;
+  font-size: 2.5rem;
+  line-height: 5rem;
+  text-align: center;
+}
+.btn:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.btn-ce {
+  grid-area: ce;
+}
+.btn-c {
+  grid-area: c;
+}
+.btn-divide {
+  grid-area: divide;
+}
+.btn-seven {
+  grid-area: seven;
+}
+.btn-eight {
+  grid-area: eight;
+}
+.btn-nine {
+  grid-area: nine;
+}
+.btn-times {
+  grid-area: times;
+}
+.btn-four {
+  grid-area: four;
+}
+.btn-five {
+  grid-area: five;
+}
+.btn-six {
+  grid-area: six;
+}
+.btn-minus {
+  grid-area: minus;
+}
+.btn-one {
+  grid-area: one;
+}
+.btn-two {
+  grid-area: two;
+}
+.btn-three {
+  grid-area: three;
+}
+.btn-\+ {
+  grid-area: plus;
+  line-height: 10rem;
+}
+.btn-zero {
+  grid-area: zero;
+}
+.btn-dot {
+  grid-area: dot;
+}
+.btn-equals {
+  grid-area: equals;
+}
+
+/* .ac-nums-container {
+  background: yellow;
+  width: 75%;
+  height: 100%;
+}
+
+.ops-container {
+  background: teal;
+  width: 25%;
+  height: 100%;
+} */
