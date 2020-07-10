@@ -98,7 +98,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById("root"));
+const buttonArray = ["ce", "c", "/", "7", "8", "9", "x", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "="];
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  buttonArray: buttonArray
+}), document.getElementById("root"));
 
 /***/ }),
 /* 1 */
@@ -7637,12 +7640,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const App = () => {
+const App = ({
+  buttonArray
+}) => {
   const handleClick = e => {
     console.log(e.target);
   };
 
-  const buttonArray = ["ce", "c", "/", "7", "8", "9", "x", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "="];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

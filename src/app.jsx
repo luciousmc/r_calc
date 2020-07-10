@@ -1,30 +1,10 @@
 import React from "react";
 import Keypad from "./keypad";
 
-const App = () => {
+const App = ({ buttonArray }) => {
   const handleClick = (e) => {
     console.log(e.target);
   };
-  const buttonArray = [
-    "ce",
-    "c",
-    "/",
-    "7",
-    "8",
-    "9",
-    "x",
-    "4",
-    "5",
-    "6",
-    "-",
-    "1",
-    "2",
-    "3",
-    "+",
-    "0",
-    ".",
-    "=",
-  ];
 
   return (
     <div id="wrapper">
