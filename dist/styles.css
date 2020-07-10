@@ -6,7 +6,16 @@
 
 .display-container {
   background: turquoise;
-  height: 10vh;
+  /* height: 10vh; */
+  padding: 25px 0;
+}
+.display {
+  background: lightblue;
+  width: 90%;
+  margin: auto;
+  font-size: 3rem;
+  text-align: right;
+  border: 1px solid white;
 }
 
 .buttons-container {

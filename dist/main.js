@@ -7640,24 +7640,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const App = ({
-  buttonArray
-}) => {
-  const handleClick = e => {
-    console.log(e.target);
-  };
+class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: []
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "wrapper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "display-container"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "buttons-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_keypad__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    buttonsList: buttonArray,
-    handleClick: handleClick
-  })));
-};
+  handleClick(e) {
+    console.log(e.target.textContent);
+    const userInput = e.target.textContent;
+    this.setState(prevState => {
+      return {
+        input: [...prevState.input, userInput]
+      };
+    });
+  }
+
+  render() {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      id: "wrapper"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "display-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "display"
+    }, "0")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "buttons-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_keypad__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      buttonsList: this.props.buttonArray,
+      handleClick: this.handleClick
+    })));
+  }
+
+} // const App = ({ buttonArray }) => {
+//   const handleClick = (e) => {
+//     console.log(e.target.textContent);
+//   };
+//   return (
+//     <div id="wrapper">
+//       <div className="display-container"></div>
+//       <div className="buttons-container">
+//         <Keypad buttonsList={buttonArray} handleClick={handleClick} />
+//       </div>
+//     </div>
+//   );
+// };
+
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
