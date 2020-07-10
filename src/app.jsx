@@ -10,7 +10,6 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(e) {
-    console.log(e.target.textContent);
     const userInput = e.target.textContent;
     this.setState((prevState) => {
       return { input: [...prevState.input, userInput] };
@@ -20,7 +19,9 @@ class App extends React.Component {
     return (
       <div id="wrapper">
         <div className="display-container">
-          <div className="display">0</div>
+          <div className="display">
+            {this.state.input.length === 0 ? 0 : this.state.input}
+          </div>
         </div>
         <div className="buttons-container">
           <Keypad

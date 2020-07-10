@@ -7650,7 +7650,6 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   }
 
   handleClick(e) {
-    console.log(e.target.textContent);
     const userInput = e.target.textContent;
     this.setState(prevState => {
       return {
@@ -7666,7 +7665,7 @@ class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
       className: "display-container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "display"
-    }, "0")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    }, this.state.input.length === 0 ? 0 : this.state.input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "buttons-container"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_keypad__WEBPACK_IMPORTED_MODULE_1__["default"], {
       buttonsList: this.props.buttonArray,
