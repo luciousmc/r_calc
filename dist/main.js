@@ -94,12 +94,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
+/* harmony import */ var _app2__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 
+ // import App from "./app";
 
 
 const buttonArray = ["ce", "c", "/", "7", "8", "9", "x", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "="];
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app__WEBPACK_IMPORTED_MODULE_2__["default"], {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app2__WEBPACK_IMPORTED_MODULE_2__["default"], {
   buttonArray: buttonArray
 }), document.getElementById("root"));
 
@@ -7640,55 +7641,60 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      input: []
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    const userInput = e.target.textContent;
-    this.setState(prevState => {
+const calcReducer = (state, action) => {
+  switch (action.type) {
+    case "CLEAR":
       return {
-        input: [...prevState.input, userInput]
+        input: []
       };
-    });
+
+    case "BUTTON_CLICK":
+      return {
+        input: [...state.input, action.input]
+      };
   }
+};
 
-  render() {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "wrapper"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "display-container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "display"
-    }, this.state.input.length === 0 ? 0 : this.state.input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "buttons-container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_keypad__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      buttonsList: this.props.buttonArray,
-      handleClick: this.handleClick
-    })));
-  }
+const initialState = {
+  input: []
+};
 
-} // const App = ({ buttonArray }) => {
-//   const handleClick = (e) => {
-//     console.log(e.target.textContent);
-//   };
-//   return (
-//     <div id="wrapper">
-//       <div className="display-container"></div>
-//       <div className="buttons-container">
-//         <Keypad buttonsList={buttonArray} handleClick={handleClick} />
-//       </div>
-//     </div>
-//   );
-// };
+const App2 = ({
+  buttonArray
+}) => {
+  // const [input, setInput] = useState([]);
+  const [state, dispatch] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(calcReducer, initialState);
 
+  const handleClick = e => {
+    const userInput = e.target.textContent; // setInput((prevState) => [...prevState, userInput]);
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+    if (userInput === "ce") {
+      dispatch({
+        type: "CLEAR"
+      });
+    } else {
+      dispatch({
+        type: "BUTTON_CLICK",
+        input: userInput
+      });
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "display-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "display"
+  }, state.input.length === 0 ? 0 : state.input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "buttons-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_keypad__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    buttonsList: buttonArray,
+    handleClick: handleClick
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (App2);
 
 /***/ }),
 /* 13 */

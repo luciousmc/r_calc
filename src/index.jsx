@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./app";
+// import App from "./app";
+import App2 from "./app2";
 
 const buttonArray = [
   "ce",
@@ -24,6 +25,6 @@ const buttonArray = [
 ];
 
 ReactDOM.render(
-  <App buttonArray={buttonArray} />,
+  <App2 buttonArray={buttonArray} />,
   document.getElementById("root")
 );
