@@ -15,13 +15,10 @@ const initialState = {
 };
 
 const App2 = ({ buttonArray }) => {
-  // const [input, setInput] = useState([]);
   const [state, dispatch] = useReducer(calcReducer, initialState);
 
   const handleClick = (e) => {
     const userInput = e.target.textContent;
-
-    // setInput((prevState) => [...prevState, userInput]);
 
     if (userInput === "ce") {
       dispatch({ type: "CLEAR" });
